@@ -1,0 +1,48 @@
+@use 'base';
+@use 'functions' as *;
+@use 'variables' as *;
+@use 'sass:map';
+@use 'lessons';
+@use 'mixins' as *;
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem-calc(10);
+
+  .flex-item {
+    // width: 12.5rem;
+    // height: 12.5rem;
+    width: rem-calc(200);
+    height: rem-calc(200);
+
+    &.item-1 {
+      // background-color: $color-brand;
+      background-color: map.get($colors, 'danger');
+    }
+
+    &.item-2 {
+      // background-color: $color-success;
+      background-color: map.get($colors, 'success');
+    }
+
+    &.item-3 {
+      // background-color: $color-danger;
+      background-color: map.get($colors, 'warning');
+
+      // background-color: rgba($color-brand, 0.1);
+    }
+  }
+}
+
+h1 {
+  color: blue;
+
+  @include typography('display-sm', bold);
+
+  @include md {
+    color: red;
+    @include typography('display-2xl', bold);
+  }
+}

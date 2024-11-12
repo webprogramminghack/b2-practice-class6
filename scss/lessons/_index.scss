@@ -1,0 +1,50 @@
+@use 'sass:map';
+@use '../functions' as *;
+
+$sizesVariations: (
+  font-size: rem-calc(12),
+  line-height: rem-calc(18),
+  letter-spacing: -0.02em,
+);
+
+// @debug map.get($sizesVariations, 'font-size');
+// @debug map.get($sizesVariations, 'line-height');
+// @debug map.get($sizesVariations, 'letter-spacing');
+// @debug map.get($sizesVariations, 'font');
+
+@each $key, $value in $sizesVariations {
+  // @debug $key;
+  // @debug '#{$key}: #{$value}';
+}
+
+// 2 dimensional map
+$animals: (
+  'cat': (
+    'sound': 'meow',
+    'color': 'black',
+  ),
+  'dog': (
+    'sound': 'woof',
+    'color': 'brown',
+  ),
+  'bird': (
+    'sound': 'tweet',
+    'color': 'yellow',
+  ),
+);
+
+// @debug map.get(map.get($animals, 'dog'), 'sound');
+
+@each $key, $value in map.get($animals, 'dog') {
+  // @debug $value;
+}
+
+// @debug map.has-key($animals, 'lion');
+
+$targeted-key: 'lion';
+
+@if map.has-key($animals, $targeted-key) {
+  // @debug 'The key #{$targeted-key} in the list';
+} @else {
+  // @debug 'The key #{$targeted-key} is not in the list';
+}
